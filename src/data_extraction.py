@@ -2,15 +2,15 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-#  API data extraction
+
 def fetch_weather_data(api_key, city):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
-    print(f"Fetching data from URL: {url}")  # Debug URL
+    print(f"Fetching data from URL: {url}")  
     response = requests.get(url)
     
     if response.status_code == 200:
         data = response.json()
-        print(json.dumps(data, indent=2))  # Print JSON data for inspection
+        print(json.dumps(data, indent=2))  
         return data
     else:
         print(f"Failed to fetch data for city {city}: {response.status_code}")
@@ -18,7 +18,7 @@ def fetch_weather_data(api_key, city):
 
 
 
-#  web scraping
+
 def fetch_page_title(url):
     response = requests.get(url)
     
