@@ -9,7 +9,7 @@ def clean_weather_data(data_list):
     for data in data_list:
         df = pd.json_normalize(data, sep='_')
 
-        # Debug prints
+
         print(f"Raw DataFrame: {df.head()}")
 
         if isinstance(data.get('weather'), list) and len(data['weather']) > 0:
@@ -39,7 +39,7 @@ def clean_weather_data(data_list):
         return pd.DataFrame()
 
     final_df = pd.concat(df_list, ignore_index=True)
-    print(f"Cleaned DataFrame: {final_df.head()}")  # Debug print
+    print(f"Cleaned DataFrame: {final_df.head()}")  
     return final_df
 
 
